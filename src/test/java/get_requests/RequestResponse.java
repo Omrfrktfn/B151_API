@@ -24,11 +24,15 @@ public class RequestResponse {
                 *Do assertion
                 *
      */
+              //  *Set the URL
+              //  *Set the expected data
+              //  *Set the request and get the response
+              //  *Do assertion
 
     public static void main(String[] args) {
 
         //Get test'i nasil yapilir.
-        String url = "https://petstore.swagger.io/v2/pet/888";
+        String url = "https://petstore.swagger.io/v2/pet/7106";
         Response response = given().when().get(url);
         //  System.out.println(response);
         response.prettyPeek();
