@@ -1,15 +1,12 @@
 package get_requests;
 
 import base_urls.HerOkuAppBaseUrl;
-import base_urls.JsonplaceholderBaseUrl;
-import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.hamcrest.Matchers;
 import org.junit.Test;
 
 import static io.restassured.RestAssured.given;
 //import static jdk.internal.net.http.frame.Http2Frame.asString;
-import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.hasItems;
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertTrue;

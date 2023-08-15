@@ -6,6 +6,7 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.hamcrest.Matchers;
 import org.junit.Test;
+import org.testng.asserts.SoftAssert;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
@@ -83,6 +84,27 @@ public class Get06 extends HerOkuAppBaseUrl {
         assertEquals(111, json.getInt("totalprice"));
         assertEquals("2019-01-01", json.getString("bookingdates.checkout"));
         assertEquals("Breakfast", json.getString("additionalneeds"));
+
+
+
+        System.out.println("****************************************************");
+
+        //1. Adım SoftAssertion objesi oluşturulur.
+        SoftAssert softAssert = new SoftAssert();
+
+        // 2. Adım Assertion yapılır
+        softAssert.assertEquals(json.getString("firstname"), "John");
+        softAssert.assertEquals(json.getString("lastname"), "Smith");
+        softAssert.assertEquals(json.getInt("totalprice"), 111);
+        softAssert.assertEquals(json.getBoolean("depositpaid"), true);
+        softAssert.assertEquals(json.getBoolean("bookingdates.checkin"), "2019-01-01");
+        softAssert.assertEquals(json.getBoolean("bookingdates.checkout"), "2018-01-01");
+        softAssert.assertEquals(json.getBoolean("additionalneeds"), "Breakfast");
+
+        //3. softAssertion.assertAll anahtar kelimeleriyle bitirilir.
+
+        softAssert.assertAll();
+
 
     }
 }
