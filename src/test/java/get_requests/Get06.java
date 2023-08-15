@@ -97,8 +97,8 @@ public class Get06 extends HerOkuAppBaseUrl {
         softAssert.assertEquals(json.getString("lastname"), "Smith");
         softAssert.assertEquals(json.getInt("totalprice"), 111);
         softAssert.assertEquals(json.getBoolean("depositpaid"), true);
-        softAssert.assertEquals(json.getBoolean("bookingdates.checkin"), "2019-01-01");
-        softAssert.assertEquals(json.getBoolean("bookingdates.checkout"), "2018-01-01");
+        softAssert.assertEquals(json.getBoolean("bookingdates.checkin"), "2018-01-01");
+        softAssert.assertEquals(json.getBoolean("bookingdates.checkout"), "2019-01-01");
         softAssert.assertEquals(json.getBoolean("additionalneeds"), "Breakfast");
 
         //3. softAssertion.assertAll anahtar kelimeleriyle bitirilir.

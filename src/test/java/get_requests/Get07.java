@@ -37,6 +37,8 @@ public class Get07 extends JsonPlaceHolderBaseUrl {
                 get("{first}");
         // response.prettyPrint();
 
+        assertEquals(200, response.statusCode());
+
         System.out.println("**********************************");
 
         JsonPath json = response.jsonPath();
