@@ -41,7 +41,6 @@ public class Put01 extends JsonPlaceHolderBaseUrl {
         expectedData.put("title", "Wash the dishes");
         expectedData.put("completed", false);
 
-
  */
 
         Map<String, Object> expectedData = new JsonPlaceHolderTestData().
@@ -62,5 +61,7 @@ public class Put01 extends JsonPlaceHolderBaseUrl {
 
 
     }
+
+
 }
 
