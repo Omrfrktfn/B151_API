@@ -90,7 +90,7 @@ public class Get09 extends HerOkuAppBaseUrl {
     public void test() {
         // Set Url
         spec.pathParams("first", "booking"
-                , "second", 92);
+                , "second", 4557);
 
 
         // Set expected data
@@ -99,7 +99,7 @@ public class Get09 extends HerOkuAppBaseUrl {
                 bookingDateMapper("2018-01-01", "2019-01-01");
 
         Map<String, Object> expectedDataMap = new HerOkuTestData().
-                expecttedDataMapper("John", "Smith"
+                expecttedDataMapper("Jane", "Doe"
                         , 111, true, bookingMap, "Extra pillows please");
 
         System.out.println("expectedDataMap = " + expectedDataMap);

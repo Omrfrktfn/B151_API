@@ -35,16 +35,16 @@ public class Patch01 extends JsonPlaceHolderBaseUrl {
     @Test
     public void patch() {
         // Set Url
-        spec.pathParams("first","todos"
-                ,"second",198);
+        spec.pathParams("first", "todos"
+                , "second", 198);
 
         // Expected data:
-        Map<String,Object> payLoad = new JsonPlaceHolderTestData()
-                .expectedDataMapper(null,"Wash the dishes",null);
+        Map<String, Object> payLoad = new JsonPlaceHolderTestData()
+                .expectedDataMapper(null, "Wash the dishes", null);
 
-        Map<String,Object> expectedDataMap = new JsonPlaceHolderTestData()
-                .expectedDataMapper(10,"Wash the dishes",true);
-        expectedDataMap.put("id",198);
+        Map<String, Object> expectedDataMap = new JsonPlaceHolderTestData()
+                .expectedDataMapper(10, "Wash the dishes", true);
+        expectedDataMap.put("id", 198);
 
         System.out.println("payLoad = " + payLoad);
         System.out.println("expectedDataMap = " + expectedDataMap);
@@ -54,20 +54,48 @@ public class Patch01 extends JsonPlaceHolderBaseUrl {
         response.prettyPrint();
 
         // Do assertion
-        Map<String,Object> actualDataMap = response.as(HashMap.class);
+        Map<String, Object> actualDataMap = response.as(HashMap.class);
 
-        assertEquals(200,response.statusCode());
-        assertEquals(payLoad.get("title"),actualDataMap.get("title"));
+        assertEquals(200, response.statusCode());
+        assertEquals(payLoad.get("title"), actualDataMap.get("title"));
         //body nin tamamı assert edilecekse 1. expectedDataMap isminde yeni bir map oluşturup karşılaştırma yapılır
         //2.payload map ine respons aldıktansonra güncelleme yapar beklediğiniz verileri girersiniz
 
         // tüm alanların doğrulanması:
 
-        assertEquals(200,response.statusCode());
-        assertEquals(expectedDataMap.get("userId"),actualDataMap.get("userId"));
-        assertEquals(expectedDataMap.get("title"),actualDataMap.get("title"));
-        assertEquals(expectedDataMap.get("completed"),actualDataMap.get("completed"));
-        assertEquals(expectedDataMap.get("id"),actualDataMap.get("id"));
+        assertEquals(200, response.statusCode());
+        assertEquals(expectedDataMap.get("userId"), actualDataMap.get("userId"));
+        assertEquals(expectedDataMap.get("title"), actualDataMap.get("title"));
+        assertEquals(expectedDataMap.get("completed"), actualDataMap.get("completed"));
+        assertEquals(expectedDataMap.get("id"), actualDataMap.get("id"));
+    }
+
+    @Test
+    public void patch01() {
+        spec.pathParams("first", "todos"
+                , "second", 198);
+
+
+        JsonPlaceHolderTestData obj = new JsonPlaceHolderTestData();
+
+        Map<String, Object> payload = obj.expectedDataMapper(null, "Wash the dishes", null);
+        Map<String, Object> expectedDataMap = new JsonPlaceHolderTestData()
+                .expectedDataMapper(10, "Wash the dishes", true);
+
+        Response response = given(spec).body(payload).when().patch("{first}/{second}");
+        response.prettyPrint();
+
+        Map<String, Object> actualData = response.as(HashMap.class);
+        assertEquals(200, response.statusCode());
+
+        Map<String, Object> actualDataMap = response.as(HashMap.class);
+
+
+        assertEquals(200, response.statusCode());
+        assertEquals(expectedDataMap.get("userId"), actualDataMap.get("userId"));
+        assertEquals(expectedDataMap.get("title"), actualDataMap.get("title"));
+        assertEquals(expectedDataMap.get("completed"), actualDataMap.get("completed"));
+
     }
 
 
