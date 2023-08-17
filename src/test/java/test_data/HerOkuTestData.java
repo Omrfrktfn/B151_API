@@ -24,7 +24,9 @@ public class HerOkuTestData {
         expecttedDataMap.put("totalprice", totalprice);
         expecttedDataMap.put("depositpaid", depositpaid);
         expecttedDataMap.put("bookingdates", bookingDates);
-        expecttedDataMap.put("additionalneeds", additionalneeds);
+        if (additionalneeds != null) {
+            expecttedDataMap.put("additionalneeds", additionalneeds);
+        }
         return expecttedDataMap;
 
     }
