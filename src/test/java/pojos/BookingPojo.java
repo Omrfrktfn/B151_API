@@ -1,5 +1,6 @@
 package pojos;
 
+
 public class BookingPojo {
     /*
     "firstname": "John",
