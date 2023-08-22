@@ -13,6 +13,7 @@ public class HerOkuAppBaseUrl {
     @Before
     public void setUp() {
         spec = new RequestSpecBuilder().
+                addHeader("Cookie", "token=00d5aeb2865c79c").
                 setContentType(ContentType.JSON).
                 setBaseUri("https://restful-booker.herokuapp.com").
                 build();
