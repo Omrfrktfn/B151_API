@@ -19,11 +19,21 @@ public class HerOkuTestData {
 
         Map<String, Object> expecttedDataMap = new HashMap<>();
 
-        expecttedDataMap.put("firstname", firstname);
-        expecttedDataMap.put("lastname", lastname);
-        expecttedDataMap.put("totalprice", totalprice);
-        expecttedDataMap.put("depositpaid", depositpaid);
-        expecttedDataMap.put("bookingdates", bookingDates);
+        if (firstname!=null){
+            expecttedDataMap.put("firstname", firstname);
+        }
+        if (lastname!=null){
+            expecttedDataMap.put("lastname", lastname);
+        }
+        if (totalprice!=null){
+            expecttedDataMap.put("totalprice", totalprice);
+        }
+       if (depositpaid != null){
+           expecttedDataMap.put("depositpaid", depositpaid);
+       }
+       if (bookingDates!= null){
+           expecttedDataMap.put("bookingdates", bookingDates);
+       }
         if (additionalneeds != null) {
             expecttedDataMap.put("additionalneeds", additionalneeds);
         }

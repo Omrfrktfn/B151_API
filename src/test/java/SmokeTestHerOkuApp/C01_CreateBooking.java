@@ -24,7 +24,7 @@ public class C01_CreateBooking extends HerOkuAppBaseUrl {
             "depositpaid" : true,
             "bookingdates" : {
                 "checkin" : "2018-01-01",
-                "checkout" : "2019-01-01"
+                "checkout" : "2018-01-01"
             },
             "additionalneeds" : "Breakfast"
         }
@@ -43,7 +43,7 @@ public class C01_CreateBooking extends HerOkuAppBaseUrl {
         "depositpaid": true,
         "bookingdates": {
             "checkin": "2018-01-01",
-            "checkout": "2019-01-01"
+            "checkout": "2018-01-01"
         },
         "additionalneeds": "Breakfast"
     }
@@ -80,6 +80,8 @@ public class C01_CreateBooking extends HerOkuAppBaseUrl {
 
         bookingId = response.jsonPath().getInt("bookingid");
 
+
+        System.out.println("**********************************************************************");
 
     }
 

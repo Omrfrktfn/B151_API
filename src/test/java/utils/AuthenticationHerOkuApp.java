@@ -1,27 +1,25 @@
 package utils;
 
+import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.given;
 
 public class AuthenticationHerOkuApp {
 
-    public static String getToken() {
+        public static String generateToken() {
 
-        String body = "{\n" +
-                "    \"username\" : \"admin\",\n" +
-                "    \"password\" : \"password123\"\n" +
-                "}";
+            String body = "{\"username\" : \"admin\",\"password\" : \"password123\"}";
 
-        Response response = given().
-                body(body).
-                when().
-                post("https://restful-booker.herokuapp.com/auth");
-        response.prettyPrint();
+            Response response = given().
+                    body(body).
+                    contentType(ContentType.JSON).
+                    when().
+                    post("https://restful-booker.herokuapp.com/auth");
 
-        return "";
+            return response.jsonPath().getString("token");
+        }
+
     }
 
 
-
-}

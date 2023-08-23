@@ -61,6 +61,8 @@ And
         assertEquals(expectedData.getBookingdates().getCheckout(), actualData.getBookingdates().getCheckout());
         assertEquals(expectedData.getAdditionalneeds(), actualData.getAdditionalneeds());
 
+        System.out.println("**********************************************************************");
+
     }
 
 }

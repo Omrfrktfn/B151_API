@@ -8,6 +8,8 @@ import pojos.BookingPojo;
 
 import static SmokeTestHerOkuApp.C01_CreateBooking.bookingId;
 import static io.restassured.RestAssured.given;
+import static org.junit.Assert.assertEquals;
+import static utils.ObjectMapperUtils.convertJsonToJava;
 
 public class C03_UpdateBooking extends HerOkuAppBaseUrl {
     /*
@@ -64,6 +66,17 @@ And
                 put("{first}/{second}");
         response.prettyPrint();
 
+        BookingPojo actualData = convertJsonToJava(response.asString(), BookingPojo.class);
 
+        assertEquals(200, response.statusCode());
+        assertEquals(expectedData.getFirstname(), actualData.getFirstname());
+        assertEquals(expectedData.getLastname(), actualData.getLastname());
+        assertEquals(expectedData.getTotalprice(), actualData.getTotalprice());
+        assertEquals(expectedData.getDepositpaid(), actualData.getDepositpaid());
+        assertEquals(expectedData.getBookingdates().getCheckin(), actualData.getBookingdates().getCheckin());
+        assertEquals(expectedData.getBookingdates().getCheckout(), actualData.getBookingdates().getCheckout());
+        assertEquals(expectedData.getAdditionalneeds(), actualData.getAdditionalneeds());
+
+        System.out.println("**********************************************************************");
     }
 }
