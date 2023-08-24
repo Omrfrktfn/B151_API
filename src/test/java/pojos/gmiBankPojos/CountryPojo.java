@@ -1,9 +1,11 @@
-package pojos;
+package pojos.gmiBankPojos;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.List;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class CountryPojo {
-
     private String name;
     private List<StatePojo> states;
 
@@ -38,5 +40,4 @@ public class CountryPojo {
                 ", states=" + states +
                 '}';
     }
-
 }

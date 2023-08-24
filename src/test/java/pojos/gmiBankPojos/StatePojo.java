@@ -1,4 +1,8 @@
-package pojos;
+package pojos.gmiBankPojos;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 
 public class StatePojo {
 
